@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    restart: always
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    volumes:
+      - ./logs:/app/logs
+
+# On a retiré le service mongodb puisqu'on utilise MongoDB Atlas
+
+# On a retiré le service mongodb puisqu'on utilise MongoDB Atlas
